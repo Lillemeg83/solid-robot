@@ -1,0 +1,122 @@
+import 'package:flutter/material.dart';
+import 'package:dyredetektiv/app/theme.dart';
+import 'package:dyredetektiv/models/character.dart';
+
+/// Speech bubble with character emoji — used for intro text and hints.
+class CharacterDialog extends StatelessWidget {
+  final Character character;
+  final String text;
+  final Color? bubbleColor;
+  final double emojiSize;
+
+  const CharacterDialog({
+    required this.character,
+    required this.text,
+    this.bubbleColor,
+    this.emojiSize = 52,
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final color = bubbleColor ?? DdTheme.cardWhite;
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        // Character avatar
+        Container(
+          width: 64,
+          height: 64,
+          decoration: BoxDecoration(
+            color: DdTheme.lightGreen.withOpacity(0.15),
+            shape: BoxShape.circle,
+            border: Border.all(color: DdTheme.lightGreen, width: 2),
+          ),
+          child: Center(
+            child: Text(character.emoji, style: TextStyle(fontSize: emojiSize)),
+          ),
+        ),
+        const SizedBox(width: DdTheme.spaceM),
+        // Speech bubble
+        Expanded(
+          child: Container(
+            padding: const EdgeInsets.all(DdTheme.spaceM),
+            decoration: BoxDecoration(
+              color: color,
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(4),
+                topRight: Radius.circular(DdTheme.radiusL),
+                bottomLeft: Radius.circular(DdTheme.radiusL),
+                bottomRight: Radius.circular(DdTheme.radiusL),
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.08),
+                  blurRadius: 8,
+                  offset: const Offset(0, 2),
+                ),
+              ],
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  character.name,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w800,
+                    fontSize: 14,
+                    color: DdTheme.primaryGreen,
+                  ),
+                ),
+                const SizedBox(height: DdTheme.spaceXS),
+                Text(text, style: DdTheme.bodyLarge),
+              ],
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+/// Hint bubble shown by Professor Padde when the player is stuck.
+class HintBubble extends StatelessWidget {
+  final String hint;
+
+  const HintBubble({required this.hint, super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(DdTheme.spaceM),
+      decoration: BoxDecoration(
+        color: const Color(0xFFFFF9C4),
+        borderRadius: BorderRadius.circular(DdTheme.radiusL),
+        border: Border.all(color: DdTheme.starGold, width: 2),
+      ),
+      child: Row(
+        children: [
+          const Text('🐸', style: TextStyle(fontSize: 32)),
+          const SizedBox(width: DdTheme.spaceM),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'Professor Padde sier:',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w700,
+                    fontSize: 13,
+                    color: DdTheme.warmOrange,
+                  ),
+                ),
+                const SizedBox(height: 2),
+                Text(hint, style: DdTheme.bodyMedium),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
