@@ -111,7 +111,7 @@ class WorldMapScreen extends ConsumerWidget {
 
   int _starsForWorld(progress, String worldId) {
     return SampleData.mysteriesForWorld(worldId)
-        .fold(0, (sum, m) => sum + progress.starsFor(m.id));
+        .fold<int>(0, (sum, m) => sum + (progress.starsFor(m.id) as int));
   }
 }
 
