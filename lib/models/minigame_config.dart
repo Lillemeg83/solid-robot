@@ -25,4 +25,14 @@ class MinigameConfig {
       (data['options'] as List?)?.cast<int>() ?? [correctCount];
   String get hint => data['hint'] as String? ?? 'Se nøye på bildet!';
   String get contextText => data['contextText'] as String? ?? '';
+
+  // ── SortGame / TrackGame helpers ───────────────────────────────────────────
+
+  /// Instruction line shown above the game area.
+  String get instruction => data['instruction'] as String? ?? '';
+
+  // ── TrackGame helpers ──────────────────────────────────────────────────────
+
+  /// Number of footprints/steps in the trail.
+  int get trackSteps => data['steps'] as int? ?? 4;
 }

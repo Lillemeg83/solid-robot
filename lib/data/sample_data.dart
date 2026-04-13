@@ -136,15 +136,21 @@ class SampleData {
           },
         ),
         MinigameConfig(
-          type: 'count',
+          type: 'sort',
           data: {
-            'question': 'Hvor mange grener er bøyd ned på treet?',
-            'emoji': '🌿',
-            'count': 3,
-            'options': [2, 3, 4, 5],
-            'hint': 'Husk: Bøyde grener er lavere enn de andre!',
-            'contextText':
-                'Professor Padde sier: "Antall bøyde grener forteller oss noe viktig!"',
+            'instruction': 'Sorter gjenstandene — hva tilhører Edgar?',
+            'categoryA': 'Edgars ting',
+            'categoryAEmoji': '🦌',
+            'categoryB': 'Andres ting',
+            'categoryBEmoji': '🌿',
+            'items': [
+              {'id': 'hatt', 'label': 'Hatt', 'emoji': '🎩', 'category': 'A'},
+              {'id': 'grein', 'label': 'Grein', 'emoji': '🌿', 'category': 'B'},
+              {'id': 'skjerf', 'label': 'Skjerf', 'emoji': '🧣', 'category': 'A'},
+              {'id': 'stein', 'label': 'Stein', 'emoji': '🪨', 'category': 'B'},
+            ],
+            'hint': 'Klær og tilbehør tilhører Edgar!',
+            'contextText': 'Mira sier: "Finn tingene som tilhører Edgar blant det som ligger rundt!"',
           },
         ),
       ],
@@ -187,25 +193,23 @@ class SampleData {
       title: 'Uglas nattmysterium',
       characterId: 'oda',
       introText:
-          'Hver natt hører jeg en merkelig lyd fra skogen. Jeg har telt lydene, men mister alltid tellingen!',
+          'Hver natt hører jeg en merkelig lyd fra skogen. Flaggermusene lager et mønster — men jeg forstår det ikke!',
       sceneDescription:
-          'Det er natt i skogen. Månen lyser opp mellom trærne. Noe lager lyder i mørket...',
+          'Det er natt i skogen. Månen lyser opp mellom trærne. Flaggermus svirrer i luften...',
       clues: [
         '🌙 Lydene høres kun om natten.',
-        '🎵 Det er en rytmisk lyd — kanskje noen teller noe?',
-        '🦇 Flaggermus flyr rundt det store eiketre.',
+        '🦇 Flaggermus svinger rundt i et spesielt mønster.',
+        '🎵 Mønsteret er en kode — følg rekkefølgen!',
       ],
       minigames: [
         MinigameConfig(
-          type: 'count',
+          type: 'track',
           data: {
-            'question': 'Hvor mange flaggermus ser du flyr rundt treet?',
+            'instruction': 'Trykk på flaggermusene i riktig rekkefølge!',
             'emoji': '🦇',
-            'count': 6,
-            'options': [4, 5, 6, 7],
-            'hint': 'Tell fra venstre til høyre — de er litt sjenerte!',
-            'contextText':
-                'Oda sier: "Flaggermusene lager lydene! Men hvor mange er de?"',
+            'steps': 5,
+            'hint': 'Start med nummer 1 og jobb deg oppover!',
+            'contextText': 'Oda sier: "Flaggermusene flyr alltid i samme rekkefølge. Følg stien!"',
           },
         ),
       ],
@@ -257,7 +261,7 @@ class SampleData {
       clues: [
         '🐷 Noen grisuger leker gjemsel.',
         '🌾 Det er gress-spor bort til høystakken.',
-        '🎪 Et lite telt er satt opp bak låven.',
+        '📝 En lapp på låveveggen forteller noe!',
       ],
       minigames: [
         MinigameConfig(
@@ -273,14 +277,19 @@ class SampleData {
           },
         ),
         MinigameConfig(
-          type: 'count',
+          type: 'read',
           data: {
-            'question': 'Gunvor hadde 5 grisuger. Du fant 3. Hvor mange mangler fremdeles?',
-            'emoji': '❓',
-            'count': 2,
-            'options': [1, 2, 3, 4],
-            'hint': '5 minus 3 = ?',
-            'contextText': 'Mira sier: "Tenk deg at du har 5 fingre og gjemmer 3!"',
+            'instruction': 'Les lappen og finn ut hvor grisungene gjemmer seg!',
+            'text': 'Grisungene leker bak HØYSTAKKEN',
+            'question': 'Hvor gjemmer grisungene seg?',
+            'options': [
+              {'id': 'hay', 'label': 'Høystakken', 'emoji': '🌾', 'correct': true},
+              {'id': 'barn', 'label': 'Låven', 'emoji': '🏠', 'correct': false},
+              {'id': 'pond', 'label': 'Dammen', 'emoji': '💧', 'correct': false},
+              {'id': 'tree', 'label': 'Treet', 'emoji': '🌳', 'correct': false},
+            ],
+            'hint': 'Se på det store ordet med STORE BOKSTAVER!',
+            'contextText': 'Mira sier: "Les lappen høyt — det hjelper!"',
           },
         ),
       ],
@@ -293,7 +302,7 @@ class SampleData {
       title: 'Det tomme melkespannet',
       characterId: 'klara',
       introText:
-          'Noen har drukket opp melken min! Jeg fyller alltid spannet med 4 liter, men det er nesten tomt nå!',
+          'Noen har drukket opp melken min! Tre dyr var i fjøset — hvem drakk mest?',
       sceneDescription:
           'Fjøset er stille og lunt. Et stort melkespann står på gulvet, og noe er tydelig galt.',
       clues: [
@@ -303,14 +312,18 @@ class SampleData {
       ],
       minigames: [
         MinigameConfig(
-          type: 'count',
+          type: 'compare',
           data: {
-            'question': 'Klara hadde 4 liter melk. Det er 1 liter igjen. Hvor mange liter er borte?',
-            'emoji': '🥛',
-            'count': 3,
-            'options': [2, 3, 4, 5],
-            'hint': '4 minus 1 = ?',
-            'contextText': 'Klara sier: "Noen drakk 3 liter! Men hvem?"',
+            'instruction': 'Sammenlign og velg!',
+            'question': 'Hvem drakk mest melk? Velg dyret med flest melkedråper!',
+            'items': [
+              {'id': 'cat', 'label': 'Katten', 'emoji': '🐱', 'value': 3, 'correct': true},
+              {'id': 'mouse', 'label': 'Musen', 'emoji': '🐭', 'value': 1, 'correct': false},
+              {'id': 'bird', 'label': 'Fuglen', 'emoji': '🐦', 'value': 2, 'correct': false},
+            ],
+            'valueEmoji': '💧',
+            'hint': 'Tell droppene under hvert dyr og velg det med flest!',
+            'contextText': 'Klara sier: "Noen drakk MYE mer enn de andre!"',
           },
         ),
       ],

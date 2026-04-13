@@ -5,6 +5,7 @@ import 'package:dyredetektiv/features/mystery/mystery_list_screen.dart';
 import 'package:dyredetektiv/features/mystery/mystery_scene_screen.dart';
 import 'package:dyredetektiv/features/minigames/minigame_screen.dart';
 import 'package:dyredetektiv/features/reward/reward_screen.dart';
+import 'package:dyredetektiv/features/collection/collection_screen.dart';
 import 'package:dyredetektiv/features/parent/parent_gate_screen.dart';
 import 'package:dyredetektiv/features/parent/parent_dashboard_screen.dart';
 
@@ -54,6 +55,10 @@ final appRouter = GoRouter(
         mysteryId: state.pathParameters['mysteryId']!,
         stars: int.tryParse(state.pathParameters['stars'] ?? '3') ?? 3,
       ),
+    ),
+    GoRoute(
+      path: '/collection',
+      builder: (context, state) => const CollectionScreen(),
     ),
     GoRoute(
       path: '/parent',

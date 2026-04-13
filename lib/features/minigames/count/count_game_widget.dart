@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:dyredetektiv/app/theme.dart';
 import 'package:dyredetektiv/models/minigame_config.dart';
 import 'package:dyredetektiv/widgets/character_dialog.dart';
-import 'package:dyredetektiv/data/sample_data.dart';
 
 /// CountGame — the player counts emoji objects on screen and taps the right number.
 ///
@@ -67,7 +66,7 @@ class _CountGameWidgetState extends State<CountGameWidget> {
         children: [
           // Context text (character flavour)
           if (widget.config.contextText.isNotEmpty)
-            _ContextCard(text: widget.config.contextText),
+            GameContextCard(text: widget.config.contextText),
           const SizedBox(height: DdTheme.spaceL),
 
           // Question
@@ -292,27 +291,3 @@ class _AnswerButton extends StatelessWidget {
   }
 }
 
-// ── Context card ──────────────────────────────────────────────────────────────
-
-class _ContextCard extends StatelessWidget {
-  final String text;
-
-  const _ContextCard({required this.text});
-
-  @override
-  Widget build(BuildContext context) {
-    // Parse simple "X sier: Y" format to show as character bubble if possible
-    final mira = SampleData.characterById('mira');
-    if (mira == null) {
-      return Container(
-        padding: const EdgeInsets.all(DdTheme.spaceM),
-        decoration: BoxDecoration(
-          color: DdTheme.lightGreen.withOpacity(0.1),
-          borderRadius: BorderRadius.circular(DdTheme.radiusM),
-        ),
-        child: Text(text, style: DdTheme.bodyMedium),
-      );
-    }
-    return CharacterDialog(character: mira, text: text);
-  }
-}

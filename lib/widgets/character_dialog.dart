@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:dyredetektiv/app/theme.dart';
 import 'package:dyredetektiv/models/character.dart';
+import 'package:dyredetektiv/data/sample_data.dart';
 
 /// Speech bubble with character emoji — used for intro text and hints.
 class CharacterDialog extends StatelessWidget {
@@ -76,6 +77,30 @@ class CharacterDialog extends StatelessWidget {
         ),
       ],
     );
+  }
+}
+
+/// Context card shown at the top of mini-games.
+/// Displays the flavour text as a Mira speech bubble when possible.
+class GameContextCard extends StatelessWidget {
+  final String text;
+
+  const GameContextCard({required this.text, super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final mira = SampleData.characterById('mira');
+    if (mira == null) {
+      return Container(
+        padding: const EdgeInsets.all(DdTheme.spaceM),
+        decoration: BoxDecoration(
+          color: DdTheme.lightGreen.withOpacity(0.1),
+          borderRadius: BorderRadius.circular(DdTheme.radiusM),
+        ),
+        child: Text(text, style: DdTheme.bodyMedium),
+      );
+    }
+    return CharacterDialog(character: mira, text: text);
   }
 }
 

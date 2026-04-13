@@ -23,6 +23,12 @@ class WorldMapScreen extends ConsumerWidget {
           onPressed: () => context.go('/'),
         ),
         actions: [
+          // Shortcut to detective book
+          IconButton(
+            tooltip: 'Detektivboken',
+            onPressed: () => context.go('/collection'),
+            icon: const Text('📖', style: TextStyle(fontSize: 22)),
+          ),
           // Total stars counter
           Padding(
             padding: const EdgeInsets.only(right: DdTheme.spaceM),

@@ -79,6 +79,18 @@ class _Content extends StatelessWidget {
             ),
             const SizedBox(height: DdTheme.spaceM),
 
+            // Detective Book button
+            DdButton(
+              label: 'Detektivboken',
+              emoji: '📖',
+              backgroundColor: DdTheme.skyBlue,
+              width: double.infinity,
+              height: 60,
+              fontSize: 18,
+              onPressed: () => context.go('/collection'),
+            ),
+            const SizedBox(height: DdTheme.spaceM),
+
             // Parent section button (smaller, less prominent)
             TextButton.icon(
               onPressed: () => context.go('/parent'),

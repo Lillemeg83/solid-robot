@@ -3,6 +3,10 @@ import 'package:go_router/go_router.dart';
 import 'package:dyredetektiv/app/theme.dart';
 import 'package:dyredetektiv/data/sample_data.dart';
 import 'package:dyredetektiv/features/minigames/count/count_game_widget.dart';
+import 'package:dyredetektiv/features/minigames/sort/sort_game_widget.dart';
+import 'package:dyredetektiv/features/minigames/read/read_game_widget.dart';
+import 'package:dyredetektiv/features/minigames/track/track_game_widget.dart';
+import 'package:dyredetektiv/features/minigames/compare/compare_game_widget.dart';
 import 'package:dyredetektiv/models/minigame_config.dart';
 
 /// Hosts all mini-games for a given mystery, cycling through them in order.
@@ -111,8 +115,31 @@ class _MinigameScreenState extends State<MinigameScreen> {
           onCompleted: _onGameCompleted,
           onHintUsed: _onHintUsed,
         );
+      case 'sort':
+        return SortGameWidget(
+          config: config,
+          onCompleted: _onGameCompleted,
+          onHintUsed: _onHintUsed,
+        );
+      case 'read':
+        return ReadGameWidget(
+          config: config,
+          onCompleted: _onGameCompleted,
+          onHintUsed: _onHintUsed,
+        );
+      case 'track':
+        return TrackGameWidget(
+          config: config,
+          onCompleted: _onGameCompleted,
+          onHintUsed: _onHintUsed,
+        );
+      case 'compare':
+        return CompareGameWidget(
+          config: config,
+          onCompleted: _onGameCompleted,
+          onHintUsed: _onHintUsed,
+        );
       default:
-        // Stub for unsupported game types
         return _UnsupportedGame(
           type: config.type,
           onCompleted: () => _onGameCompleted(true),
