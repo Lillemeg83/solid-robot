@@ -15,8 +15,8 @@ android/gradlew.bat
 android/gradle/
 
 # iOS
-ios/Flutter/
-ios/Runner/
+ios/Flutter/Generated.xcconfig
+ios/Flutter/flutter_export_environment.sh
 ios/.symlinks/
 ios/Pods/
 ios/Runner.xcworkspace/
