@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:dyredetektiv/app/theme.dart';
 import 'package:dyredetektiv/data/sample_data.dart';
+import 'package:dyredetektiv/widgets/animated_animal.dart';
 import 'package:dyredetektiv/widgets/character_dialog.dart';
 import 'package:dyredetektiv/widgets/dd_button.dart';
 
@@ -45,6 +46,11 @@ class _MysterySceneScreenState extends State<MysterySceneScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            // Big character hero
+            if (character != null)
+              _CharacterHero(character: character, worldColor: worldColor),
+            const SizedBox(height: DdTheme.spaceL),
+
             // Scene description banner
             _SceneBanner(
               description: mystery.sceneDescription,
@@ -132,6 +138,64 @@ class _MysterySceneScreenState extends State<MysterySceneScreen> {
             const SizedBox(height: DdTheme.spaceXL),
           ],
         ),
+      ),
+    );
+  }
+}
+
+// ── Character hero ────────────────────────────────────────────────────────────
+
+class _CharacterHero extends StatelessWidget {
+  final dynamic character;
+  final Color worldColor;
+
+  const _CharacterHero({required this.character, required this.worldColor});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        children: [
+          Container(
+            width: 110,
+            height: 110,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              gradient: RadialGradient(
+                colors: [
+                  worldColor.withValues(alpha: 0.35),
+                  worldColor.withValues(alpha: 0.08),
+                ],
+              ),
+              border: Border.all(color: worldColor, width: 3),
+              boxShadow: [
+                BoxShadow(
+                  color: worldColor.withValues(alpha: 0.3),
+                  blurRadius: 18,
+                  offset: const Offset(0, 6),
+                ),
+              ],
+            ),
+            child: Center(
+              child: AnimatedAnimal(
+                emoji: character.emoji as String,
+                size: 60,
+                amplitude: 5,
+                bouncy: true,
+                period: const Duration(milliseconds: 1100),
+              ),
+            ),
+          ),
+          const SizedBox(height: DdTheme.spaceS),
+          Text(
+            character.name as String,
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.w800,
+              color: worldColor,
+            ),
+          ),
+        ],
       ),
     );
   }

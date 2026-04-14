@@ -47,9 +47,9 @@ class SampleData {
     Character(
       id: 'mira',
       name: 'Mira',
-      emoji: '🦔',
+      emoji: '🦊',
       description:
-          'Mira er din hjelpsomme venn. Hun er alltid nysgjerrig og vil hjelpe alle dyr hun møter!',
+          'Mira er den beste detektiven i hele skogen! Med lupen sin og smarte nese finner hun alle svar.',
       worldId: 'all',
     ),
     Character(
@@ -71,9 +71,9 @@ class SampleData {
     Character(
       id: 'rosa',
       name: 'Rosa',
-      emoji: '🦊',
+      emoji: '🐿️',
       description:
-          'Reven Rosa er leken og litt lurvig, men har et godt hjerte. Hennes bærforråd forsvinner stadig!',
+          'Ekornungen Rosa er leken og full av energi. Nøtteforrådet hennes forsvinner stadig vekk!',
       worldId: 'forest',
     ),
     Character(

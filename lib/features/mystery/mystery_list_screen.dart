@@ -351,7 +351,7 @@ class _PlayerMira extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           const AnimatedAnimal(
-            emoji: '🦔',
+            emoji: '🦊',
             size: 46,
             amplitude: 6,
             bouncy: true,

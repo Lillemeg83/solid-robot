@@ -220,7 +220,7 @@ class _LogoSection extends StatelessWidget {
           ),
           child: const Center(
             child: AnimatedAnimal(
-              emoji: '🦔',
+              emoji: '🦊',
               size: 68,
               amplitude: 7,
               bouncy: true,

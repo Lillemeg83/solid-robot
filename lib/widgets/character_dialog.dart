@@ -24,19 +24,8 @@ class CharacterDialog extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // Character avatar
-        Container(
-          width: 64,
-          height: 64,
-          decoration: BoxDecoration(
-            color: DdTheme.lightGreen.withValues(alpha: 0.15),
-            shape: BoxShape.circle,
-            border: Border.all(color: DdTheme.lightGreen, width: 2),
-          ),
-          child: Center(
-            child: Text(character.emoji, style: TextStyle(fontSize: emojiSize)),
-          ),
-        ),
+        // Character avatar — initial letter + emoji overlay
+        _CharacterAvatar(character: character),
         const SizedBox(width: DdTheme.spaceM),
         // Speech bubble
         Expanded(
@@ -76,6 +65,76 @@ class CharacterDialog extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+// ── Character avatar ──────────────────────────────────────────────────────────
+
+/// Circular avatar showing the character initial (always renders) with
+/// the emoji in a small badge at the bottom-right (renders if font supports it).
+class _CharacterAvatar extends StatelessWidget {
+  final Character character;
+
+  const _CharacterAvatar({required this.character});
+
+  @override
+  Widget build(BuildContext context) {
+    final initial = character.name.isNotEmpty
+        ? character.name.substring(0, 1).toUpperCase()
+        : '?';
+    return SizedBox(
+      width: 70,
+      height: 70,
+      child: Stack(
+        children: [
+          // Main circle with initial
+          Container(
+            width: 70,
+            height: 70,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              gradient: RadialGradient(
+                colors: [
+                  DdTheme.lightGreen.withValues(alpha: 0.55),
+                  DdTheme.lightGreen.withValues(alpha: 0.15),
+                ],
+              ),
+              border: Border.all(color: DdTheme.lightGreen, width: 2.5),
+            ),
+            child: Center(
+              child: Text(
+                character.emoji,
+                style: const TextStyle(fontSize: 34),
+              ),
+            ),
+          ),
+          // Emoji badge bottom-right (if emoji doesn't render the initial is enough)
+          Positioned(
+            bottom: 0,
+            right: 0,
+            child: Container(
+              width: 26,
+              height: 26,
+              decoration: const BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.white,
+                boxShadow: [BoxShadow(blurRadius: 4, color: Colors.black12)],
+              ),
+              child: Center(
+                child: Text(
+                  initial,
+                  style: const TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w900,
+                    color: DdTheme.primaryGreen,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
