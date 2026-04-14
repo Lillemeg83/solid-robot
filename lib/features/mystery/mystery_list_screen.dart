@@ -8,7 +8,7 @@ import 'package:dyredetektiv/models/mystery.dart';
 import 'package:dyredetektiv/models/world.dart';
 import 'package:dyredetektiv/providers/progress_provider.dart';
 import 'package:dyredetektiv/widgets/animated_animal.dart';
-import 'package:dyredetektiv/widgets/detective_fox.dart';
+import 'package:dyredetektiv/widgets/cute_fox_detective.dart';
 
 class MysteryListScreen extends ConsumerWidget {
   final String worldId;
@@ -346,17 +346,12 @@ class _PlayerMira extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      left: position.dx - 45,
-      top: position.dy - 118,
+      left: position.dx - 34,
+      top: position.dy - 120,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const AnimatedDetectiveFox(
-            size: 36,
-            amplitude: 6,
-            bouncy: true,
-            period: Duration(milliseconds: 900),
-          ),
+          const CuteFoxDetective(size: 52),
           const SizedBox(height: 3),
           Container(
             padding:

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:dyredetektiv/app/theme.dart';
 import 'package:dyredetektiv/models/character.dart';
 import 'package:dyredetektiv/data/sample_data.dart';
-import 'package:dyredetektiv/widgets/detective_fox.dart';
+import 'package:dyredetektiv/widgets/cute_fox_detective.dart';
 
 /// Speech bubble with character emoji — used for intro text and hints.
 class CharacterDialog extends StatelessWidget {
@@ -104,7 +104,7 @@ class _CharacterAvatar extends StatelessWidget {
                 ),
                 border: Border.all(color: DdTheme.warmOrange, width: 2.5),
               ),
-              child: const Center(child: DetectiveFox(size: 28)),
+              child: const Center(child: CuteFoxDetective(size: 44)),
             )
           else
             Container(

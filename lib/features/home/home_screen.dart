@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:dyredetektiv/app/theme.dart';
 import 'package:dyredetektiv/widgets/animated_animal.dart';
-import 'package:dyredetektiv/widgets/detective_fox.dart';
+import 'package:dyredetektiv/widgets/cute_fox_detective.dart';
 import 'package:dyredetektiv/widgets/dd_button.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -220,12 +220,7 @@ class _LogoSection extends StatelessWidget {
             ],
           ),
           child: const Center(
-            child: AnimatedDetectiveFox(
-              size: 52,
-              amplitude: 7,
-              bouncy: true,
-              period: Duration(milliseconds: 1000),
-            ),
+            child: CuteFoxDetective(size: 78),
           ),
         ),
         const SizedBox(height: DdTheme.spaceL),
