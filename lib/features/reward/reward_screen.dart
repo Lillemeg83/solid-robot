@@ -91,10 +91,9 @@ class _RewardScreenState extends ConsumerState<RewardScreen>
     return Scaffold(
       backgroundColor: DdTheme.backgroundWarm,
       body: SafeArea(
-        child: Padding(
+        child: SingleChildScrollView(
           padding: const EdgeInsets.all(DdTheme.spaceXL),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               // Character celebration
@@ -143,22 +142,23 @@ class _RewardScreenState extends ConsumerState<RewardScreen>
                         color: DdTheme.starGold.withValues(alpha: 0.5), width: 2),
                   ),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Text('📖', style: TextStyle(fontSize: 24)),
                       const SizedBox(width: DdTheme.spaceS),
-                      Text(
-                        '${character.name} ${character.emoji} er lagt til i detektivboken!',
-                        style: const TextStyle(
-                          fontWeight: FontWeight.w700,
-                          fontSize: 15,
-                          color: DdTheme.warmBrown,
+                      Expanded(
+                        child: Text(
+                          '${character.name} ${character.emoji} er lagt til i detektivboken!',
+                          style: const TextStyle(
+                            fontWeight: FontWeight.w700,
+                            fontSize: 15,
+                            color: DdTheme.warmBrown,
+                          ),
                         ),
                       ),
                     ],
                   ),
                 ),
-              const SizedBox(height: DdTheme.spaceXXL),
+              const SizedBox(height: DdTheme.spaceL),
 
               // Navigation buttons
               if (nextMystery != null)
@@ -189,3 +189,4 @@ class _RewardScreenState extends ConsumerState<RewardScreen>
     );
   }
 }
+
