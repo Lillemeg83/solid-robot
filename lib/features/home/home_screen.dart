@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:dyredetektiv/app/theme.dart';
+import 'package:dyredetektiv/widgets/animated_animal.dart';
 import 'package:dyredetektiv/widgets/dd_button.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -13,7 +14,8 @@ class HomeScreen extends StatelessWidget {
       body: SafeArea(
         child: Stack(
           children: [
-            _Background(),
+            const _FloatingAnimals(),
+            const _TreeRow(),
             _Content(),
           ],
         ),
@@ -22,9 +24,99 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-// ── Decorative background ─────────────────────────────────────────────────────
+// ── Floating background animals ───────────────────────────────────────────────
 
-class _Background extends StatelessWidget {
+class _FloatingAnimals extends StatelessWidget {
+  const _FloatingAnimals();
+
+  @override
+  Widget build(BuildContext context) {
+    return IgnorePointer(
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          final w = constraints.maxWidth;
+          final h = constraints.maxHeight;
+          return Stack(
+            children: [
+              Positioned(
+                left: w * 0.05,
+                top: h * 0.08,
+                child: const AnimatedAnimal(
+                  emoji: '🦊',
+                  size: 38,
+                  amplitude: 9,
+                  period: Duration(milliseconds: 2000),
+                  delay: Duration(milliseconds: 0),
+                ),
+              ),
+              Positioned(
+                right: w * 0.06,
+                top: h * 0.12,
+                child: const AnimatedAnimal(
+                  emoji: '🐰',
+                  size: 34,
+                  amplitude: 7,
+                  period: Duration(milliseconds: 1700),
+                  delay: Duration(milliseconds: 300),
+                ),
+              ),
+              Positioned(
+                left: w * 0.08,
+                top: h * 0.38,
+                child: const AnimatedAnimal(
+                  emoji: '🦋',
+                  size: 28,
+                  amplitude: 11,
+                  period: Duration(milliseconds: 1500),
+                  delay: Duration(milliseconds: 150),
+                ),
+              ),
+              Positioned(
+                right: w * 0.07,
+                top: h * 0.42,
+                child: const AnimatedAnimal(
+                  emoji: '🐿️',
+                  size: 30,
+                  amplitude: 8,
+                  period: Duration(milliseconds: 2200),
+                  delay: Duration(milliseconds: 450),
+                ),
+              ),
+              Positioned(
+                left: w * 0.12,
+                top: h * 0.65,
+                child: const AnimatedAnimal(
+                  emoji: '🐦',
+                  size: 26,
+                  amplitude: 12,
+                  period: Duration(milliseconds: 1400),
+                  delay: Duration(milliseconds: 600),
+                ),
+              ),
+              Positioned(
+                right: w * 0.10,
+                top: h * 0.68,
+                child: const AnimatedAnimal(
+                  emoji: '🍄',
+                  size: 24,
+                  amplitude: 5,
+                  period: Duration(milliseconds: 2500),
+                  delay: Duration(milliseconds: 200),
+                ),
+              ),
+            ],
+          );
+        },
+      ),
+    );
+  }
+}
+
+// ── Tree row at the bottom ────────────────────────────────────────────────────
+
+class _TreeRow extends StatelessWidget {
+  const _TreeRow();
+
   @override
   Widget build(BuildContext context) {
     return const Positioned.fill(
@@ -33,7 +125,7 @@ class _Background extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Padding(
-              padding: EdgeInsets.only(bottom: 16),
+              padding: EdgeInsets.only(bottom: 12),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -63,11 +155,8 @@ class _Content extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Logo / title
             _LogoSection(),
             const SizedBox(height: DdTheme.spaceXXL),
-
-            // Play button
             DdButton(
               label: 'Spill!',
               emoji: '🔍',
@@ -78,8 +167,6 @@ class _Content extends StatelessWidget {
               onPressed: () => context.go('/map'),
             ),
             const SizedBox(height: DdTheme.spaceM),
-
-            // Detective Book button
             DdButton(
               label: 'Detektivboken',
               emoji: '📖',
@@ -90,8 +177,6 @@ class _Content extends StatelessWidget {
               onPressed: () => context.go('/collection'),
             ),
             const SizedBox(height: DdTheme.spaceM),
-
-            // Parent section button (smaller, less prominent)
             TextButton.icon(
               onPressed: () => context.go('/parent'),
               icon: const Icon(Icons.lock_outline, size: 18),
@@ -110,27 +195,40 @@ class _Content extends StatelessWidget {
   }
 }
 
+// ── Logo / title section ──────────────────────────────────────────────────────
+
 class _LogoSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        // Mira avatar
+        // Mira — animated bouncing hedgehog
         Container(
-          width: 120,
-          height: 120,
+          width: 130,
+          height: 130,
           decoration: BoxDecoration(
             color: DdTheme.lightGreen.withValues(alpha: 0.2),
             shape: BoxShape.circle,
             border: Border.all(color: DdTheme.lightGreen, width: 3),
+            boxShadow: [
+              BoxShadow(
+                color: DdTheme.lightGreen.withValues(alpha: 0.3),
+                blurRadius: 20,
+                offset: const Offset(0, 6),
+              ),
+            ],
           ),
           child: const Center(
-            child: Text('🦔', style: TextStyle(fontSize: 64)),
+            child: AnimatedAnimal(
+              emoji: '🦔',
+              size: 68,
+              amplitude: 7,
+              bouncy: true,
+              period: Duration(milliseconds: 1000),
+            ),
           ),
         ),
         const SizedBox(height: DdTheme.spaceL),
-
-        // App title
         const Text(
           'Dyredetektiv',
           style: TextStyle(
@@ -141,8 +239,6 @@ class _LogoSection extends StatelessWidget {
           ),
         ),
         const SizedBox(height: DdTheme.spaceS),
-
-        // Tagline
         Text(
           'Løs mysterier med dyrene!',
           style: TextStyle(
