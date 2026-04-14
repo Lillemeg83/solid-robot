@@ -147,7 +147,7 @@ class SampleData {
               {'id': 'solbriller', 'label': 'Solbriller', 'emoji': '🕶️', 'category': 'B'},
               {'id': 'votter', 'label': 'Votter', 'emoji': '🧤', 'category': 'A'},
               {'id': 'sandaler', 'label': 'Sandaler', 'emoji': '👡', 'category': 'B'},
-              {'id': 'lue', 'label': 'Topplue', 'emoji': '🧢', 'category': 'A'},
+              {'id': 'lue', 'label': 'Vinterjakke', 'emoji': '🧥', 'category': 'A'},
               {'id': 'badedrakt', 'label': 'Badeshorts', 'emoji': '🩳', 'category': 'B'},
             ],
             'hint': 'Tenk: hva tar du på når det er kaldt og snø ute?',
