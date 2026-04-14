@@ -4,6 +4,7 @@ import 'package:dyredetektiv/app/theme.dart';
 import 'package:dyredetektiv/data/sample_data.dart';
 import 'package:dyredetektiv/widgets/animated_animal.dart';
 import 'package:dyredetektiv/widgets/character_dialog.dart';
+import 'package:dyredetektiv/widgets/detective_fox.dart';
 import 'package:dyredetektiv/widgets/dd_button.dart';
 
 /// Shows the mystery intro: scene description, character speech and clues.
@@ -177,13 +178,20 @@ class _CharacterHero extends StatelessWidget {
               ],
             ),
             child: Center(
-              child: AnimatedAnimal(
-                emoji: character.emoji as String,
-                size: 60,
-                amplitude: 5,
-                bouncy: true,
-                period: const Duration(milliseconds: 1100),
-              ),
+              child: (character.id as String) == 'mira'
+                  ? const AnimatedDetectiveFox(
+                      size: 46,
+                      amplitude: 5,
+                      bouncy: true,
+                      period: Duration(milliseconds: 1100),
+                    )
+                  : AnimatedAnimal(
+                      emoji: character.emoji as String,
+                      size: 60,
+                      amplitude: 5,
+                      bouncy: true,
+                      period: const Duration(milliseconds: 1100),
+                    ),
             ),
           ),
           const SizedBox(height: DdTheme.spaceS),

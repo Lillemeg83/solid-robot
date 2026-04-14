@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:dyredetektiv/app/theme.dart';
 import 'package:dyredetektiv/models/character.dart';
 import 'package:dyredetektiv/data/sample_data.dart';
+import 'package:dyredetektiv/widgets/detective_fox.dart';
 
 /// Speech bubble with character emoji — used for intro text and hints.
 class CharacterDialog extends StatelessWidget {
@@ -88,27 +89,44 @@ class _CharacterAvatar extends StatelessWidget {
       height: 70,
       child: Stack(
         children: [
-          // Main circle with initial
-          Container(
-            width: 70,
-            height: 70,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              gradient: RadialGradient(
-                colors: [
-                  DdTheme.lightGreen.withValues(alpha: 0.55),
-                  DdTheme.lightGreen.withValues(alpha: 0.15),
-                ],
+          // Main circle — detective fox for Mira, emoji+initial for others
+          if (character.id == 'mira')
+            Container(
+              width: 70,
+              height: 70,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                gradient: RadialGradient(
+                  colors: [
+                    DdTheme.warmOrange.withValues(alpha: 0.3),
+                    DdTheme.warmOrange.withValues(alpha: 0.08),
+                  ],
+                ),
+                border: Border.all(color: DdTheme.warmOrange, width: 2.5),
               ),
-              border: Border.all(color: DdTheme.lightGreen, width: 2.5),
-            ),
-            child: Center(
-              child: Text(
-                character.emoji,
-                style: const TextStyle(fontSize: 34),
+              child: const Center(child: DetectiveFox(size: 28)),
+            )
+          else
+            Container(
+              width: 70,
+              height: 70,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                gradient: RadialGradient(
+                  colors: [
+                    DdTheme.lightGreen.withValues(alpha: 0.55),
+                    DdTheme.lightGreen.withValues(alpha: 0.15),
+                  ],
+                ),
+                border: Border.all(color: DdTheme.lightGreen, width: 2.5),
+              ),
+              child: Center(
+                child: Text(
+                  character.emoji,
+                  style: const TextStyle(fontSize: 34),
+                ),
               ),
             ),
-          ),
           // Emoji badge bottom-right (if emoji doesn't render the initial is enough)
           Positioned(
             bottom: 0,

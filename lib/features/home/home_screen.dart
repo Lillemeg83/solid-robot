@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:dyredetektiv/app/theme.dart';
 import 'package:dyredetektiv/widgets/animated_animal.dart';
+import 'package:dyredetektiv/widgets/detective_fox.dart';
 import 'package:dyredetektiv/widgets/dd_button.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -202,26 +203,25 @@ class _LogoSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        // Mira — animated bouncing hedgehog
+        // Mira — animated detective fox
         Container(
-          width: 130,
-          height: 130,
+          width: 140,
+          height: 140,
           decoration: BoxDecoration(
-            color: DdTheme.lightGreen.withValues(alpha: 0.2),
+            color: DdTheme.warmOrange.withValues(alpha: 0.12),
             shape: BoxShape.circle,
-            border: Border.all(color: DdTheme.lightGreen, width: 3),
+            border: Border.all(color: DdTheme.warmOrange, width: 3),
             boxShadow: [
               BoxShadow(
-                color: DdTheme.lightGreen.withValues(alpha: 0.3),
-                blurRadius: 20,
+                color: DdTheme.warmOrange.withValues(alpha: 0.25),
+                blurRadius: 22,
                 offset: const Offset(0, 6),
               ),
             ],
           ),
           child: const Center(
-            child: AnimatedAnimal(
-              emoji: '🦊',
-              size: 68,
+            child: AnimatedDetectiveFox(
+              size: 52,
               amplitude: 7,
               bouncy: true,
               period: Duration(milliseconds: 1000),

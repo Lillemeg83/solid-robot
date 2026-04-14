@@ -8,6 +8,7 @@ import 'package:dyredetektiv/models/mystery.dart';
 import 'package:dyredetektiv/models/world.dart';
 import 'package:dyredetektiv/providers/progress_provider.dart';
 import 'package:dyredetektiv/widgets/animated_animal.dart';
+import 'package:dyredetektiv/widgets/detective_fox.dart';
 
 class MysteryListScreen extends ConsumerWidget {
   final String worldId;
@@ -345,14 +346,13 @@ class _PlayerMira extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      left: position.dx - 32,
-      top: position.dy - 104,
+      left: position.dx - 45,
+      top: position.dy - 118,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const AnimatedAnimal(
-            emoji: '🦊',
-            size: 46,
+          const AnimatedDetectiveFox(
+            size: 36,
             amplitude: 6,
             bouncy: true,
             period: Duration(milliseconds: 900),
