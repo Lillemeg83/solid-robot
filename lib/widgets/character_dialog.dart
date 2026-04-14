@@ -29,7 +29,7 @@ class CharacterDialog extends StatelessWidget {
           width: 64,
           height: 64,
           decoration: BoxDecoration(
-            color: DdTheme.lightGreen.withOpacity(0.15),
+            color: DdTheme.lightGreen.withValues(alpha: 0.15),
             shape: BoxShape.circle,
             border: Border.all(color: DdTheme.lightGreen, width: 2),
           ),
@@ -52,7 +52,7 @@ class CharacterDialog extends StatelessWidget {
               ),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.08),
+                  color: Colors.black.withValues(alpha: 0.08),
                   blurRadius: 8,
                   offset: const Offset(0, 2),
                 ),
@@ -94,7 +94,7 @@ class GameContextCard extends StatelessWidget {
       return Container(
         padding: const EdgeInsets.all(DdTheme.spaceM),
         decoration: BoxDecoration(
-          color: DdTheme.lightGreen.withOpacity(0.1),
+          color: DdTheme.lightGreen.withValues(alpha: 0.1),
           borderRadius: BorderRadius.circular(DdTheme.radiusM),
         ),
         child: Text(text, style: DdTheme.bodyMedium),

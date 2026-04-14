@@ -63,7 +63,7 @@ class CollectionScreen extends ConsumerWidget {
                 borderRadius: BorderRadius.circular(DdTheme.radiusL),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.07),
+                    color: Colors.black.withValues(alpha: 0.07),
                     blurRadius: 8,
                     offset: const Offset(0, 2),
                   ),
@@ -158,7 +158,7 @@ class _CharacterCard extends StatelessWidget {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
               decoration: BoxDecoration(
-                color: color.withOpacity(0.12),
+                color: color.withValues(alpha: 0.12),
                 borderRadius: BorderRadius.circular(DdTheme.radiusS),
               ),
               child: Text(

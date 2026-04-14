@@ -84,10 +84,10 @@ class _ReadGameWidgetState extends State<ReadGameWidget> {
               vertical: DdTheme.spaceL,
             ),
             decoration: BoxDecoration(
-              color: DdTheme.skyBlue.withOpacity(0.1),
+              color: DdTheme.skyBlue.withValues(alpha: 0.1),
               borderRadius: BorderRadius.circular(DdTheme.radiusL),
               border: Border.all(
-                color: DdTheme.skyBlue.withOpacity(0.45),
+                color: DdTheme.skyBlue.withValues(alpha: 0.45),
                 width: 2,
               ),
             ),
@@ -201,12 +201,12 @@ class _OptionCard extends StatelessWidget {
         border: Border.all(
           color: isSelected
               ? (isCorrect ? DdTheme.successGreen : DdTheme.errorRed)
-              : DdTheme.lockGrey.withOpacity(0.3),
+              : DdTheme.lockGrey.withValues(alpha: 0.3),
           width: 2.5,
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.07),
+            color: Colors.black.withValues(alpha: 0.07),
             blurRadius: 6,
             offset: const Offset(0, 2),
           ),

@@ -102,8 +102,8 @@ class _MysteryCard extends StatelessWidget {
                     color: isCompleted
                         ? world.primaryColor
                         : isUnlocked
-                            ? world.primaryColor.withOpacity(0.15)
-                            : DdTheme.lockGrey.withOpacity(0.2),
+                            ? world.primaryColor.withValues(alpha: 0.15)
+                            : DdTheme.lockGrey.withValues(alpha: 0.2),
                     shape: BoxShape.circle,
                   ),
                   child: Center(

@@ -123,7 +123,7 @@ class _MysterySceneScreenState extends State<MysterySceneScreen> {
                     'Les ledetråder først!',
                     style: TextStyle(
                       fontSize: 14,
-                      color: DdTheme.warmBrown.withOpacity(0.5),
+                      color: DdTheme.warmBrown.withValues(alpha: 0.5),
                     ),
                   ),
                 ),
@@ -151,12 +151,12 @@ class _SceneBanner extends StatelessWidget {
       padding: const EdgeInsets.all(DdTheme.spaceL),
       decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [worldColor.withOpacity(0.2), worldColor.withOpacity(0.05)],
+          colors: [worldColor.withValues(alpha: 0.2), worldColor.withValues(alpha: 0.05)],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
         borderRadius: BorderRadius.circular(DdTheme.radiusL),
-        border: Border.all(color: worldColor.withOpacity(0.3)),
+        border: Border.all(color: worldColor.withValues(alpha: 0.3)),
       ),
       child: Row(
         children: [
@@ -195,12 +195,12 @@ class _ClueCard extends StatelessWidget {
         decoration: BoxDecoration(
           color: isRevealed
               ? DdTheme.cardWhite
-              : DdTheme.cardWhite.withOpacity(0.5),
+              : DdTheme.cardWhite.withValues(alpha: 0.5),
           borderRadius: BorderRadius.circular(DdTheme.radiusM),
           boxShadow: isRevealed
               ? [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.07),
+                    color: Colors.black.withValues(alpha: 0.07),
                     blurRadius: 6,
                     offset: const Offset(0, 2),
                   ),

@@ -165,7 +165,7 @@ class _SortGameWidgetState extends State<SortGameWidget> {
                   : 'Trykk på en gjenstand, deretter en bøtte!',
               style: TextStyle(
                 fontSize: 14,
-                color: DdTheme.warmBrown.withOpacity(0.65),
+                color: DdTheme.warmBrown.withValues(alpha: 0.65),
                 fontStyle: FontStyle.italic,
               ),
               textAlign: TextAlign.center,
@@ -240,18 +240,18 @@ class _Bucket extends StatelessWidget {
         padding: const EdgeInsets.all(DdTheme.spaceM),
         decoration: BoxDecoration(
           color: isTarget
-              ? DdTheme.lightGreen.withOpacity(0.18)
+              ? DdTheme.lightGreen.withValues(alpha: 0.18)
               : DdTheme.cardWhite,
           borderRadius: BorderRadius.circular(DdTheme.radiusL),
           border: Border.all(
             color: isTarget
                 ? DdTheme.lightGreen
-                : DdTheme.lockGrey.withOpacity(0.3),
+                : DdTheme.lockGrey.withValues(alpha: 0.3),
             width: isTarget ? 2.5 : 1.5,
           ),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.05),
+              color: Colors.black.withValues(alpha: 0.05),
               blurRadius: 6,
             ),
           ],
@@ -283,10 +283,10 @@ class _Bucket extends StatelessWidget {
                       vertical: 4,
                     ),
                     decoration: BoxDecoration(
-                      color: DdTheme.successGreen.withOpacity(0.12),
+                      color: DdTheme.successGreen.withValues(alpha: 0.12),
                       borderRadius: BorderRadius.circular(DdTheme.radiusM),
                       border: Border.all(
-                        color: DdTheme.successGreen.withOpacity(0.5),
+                        color: DdTheme.successGreen.withValues(alpha: 0.5),
                       ),
                     ),
                     child: Row(
@@ -342,12 +342,12 @@ class _ItemChip extends StatelessWidget {
 
     if (isSelected) {
       border = DdTheme.warmOrange;
-      bg = DdTheme.warmOrange.withOpacity(0.1);
+      bg = DdTheme.warmOrange.withValues(alpha: 0.1);
     } else if (hasError) {
       border = DdTheme.errorRed;
-      bg = DdTheme.errorRed.withOpacity(0.1);
+      bg = DdTheme.errorRed.withValues(alpha: 0.1);
     } else {
-      border = DdTheme.lockGrey.withOpacity(0.35);
+      border = DdTheme.lockGrey.withValues(alpha: 0.35);
       bg = DdTheme.cardWhite;
     }
 
@@ -362,7 +362,7 @@ class _ItemChip extends StatelessWidget {
           border: Border.all(color: border, width: 2.5),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.07),
+              color: Colors.black.withValues(alpha: 0.07),
               blurRadius: 6,
               offset: const Offset(0, 2),
             ),

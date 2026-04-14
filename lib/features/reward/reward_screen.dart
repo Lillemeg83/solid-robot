@@ -77,9 +77,6 @@ class _RewardScreenState extends ConsumerState<RewardScreen>
     final character = mystery != null
         ? SampleData.characterById(mystery.characterId)
         : null;
-    final world = mystery != null
-        ? SampleData.worldById(mystery.worldId)
-        : null;
     final nextMystery = mystery != null
         ? SampleData.nextMystery(widget.mysteryId)
         : null;
@@ -140,10 +137,10 @@ class _RewardScreenState extends ConsumerState<RewardScreen>
                 Container(
                   padding: const EdgeInsets.all(DdTheme.spaceM),
                   decoration: BoxDecoration(
-                    color: DdTheme.starGold.withOpacity(0.15),
+                    color: DdTheme.starGold.withValues(alpha: 0.15),
                     borderRadius: BorderRadius.circular(DdTheme.radiusM),
                     border: Border.all(
-                        color: DdTheme.starGold.withOpacity(0.5), width: 2),
+                        color: DdTheme.starGold.withValues(alpha: 0.5), width: 2),
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,

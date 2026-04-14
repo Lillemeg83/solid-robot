@@ -124,7 +124,7 @@ class ParentDashboardScreen extends ConsumerWidget {
                         'Engangskjøp for å fjerne alle annonser fra spillet.',
                         style: TextStyle(
                           fontSize: 14,
-                          color: DdTheme.warmBrown.withOpacity(0.65),
+                          color: DdTheme.warmBrown.withValues(alpha: 0.65),
                         ),
                       ),
                       const SizedBox(height: DdTheme.spaceM),

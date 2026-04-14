@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:dyredetektiv/models/character.dart';
 import 'package:dyredetektiv/models/minigame_config.dart';
 import 'package:dyredetektiv/models/mystery.dart';

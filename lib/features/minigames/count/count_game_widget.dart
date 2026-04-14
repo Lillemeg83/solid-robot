@@ -28,7 +28,6 @@ class _CountGameWidgetState extends State<CountGameWidget> {
   int? _selectedAnswer;
   bool _answered = false;
   bool _showHint = false;
-  int _wrongAttempts = 0;
 
   void _handleAnswer(int value) {
     if (_answered) return;
@@ -49,7 +48,6 @@ class _CountGameWidgetState extends State<CountGameWidget> {
   void _handleWrongAttempt(int value) {
     setState(() {
       _selectedAnswer = value;
-      _wrongAttempts++;
     });
     // Reset selection after 600 ms to allow another try
     Future.delayed(const Duration(milliseconds: 600), () {
@@ -140,7 +138,6 @@ class _EmojiGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const int columns = 5;
     return Container(
       padding: const EdgeInsets.all(DdTheme.spaceL),
       decoration: BoxDecoration(
@@ -148,7 +145,7 @@ class _EmojiGrid extends StatelessWidget {
         borderRadius: BorderRadius.circular(DdTheme.radiusL),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.06),
+            color: Colors.black.withValues(alpha: 0.06),
             blurRadius: 10,
             offset: const Offset(0, 3),
           ),
@@ -242,12 +239,12 @@ class _AnswerButton extends StatelessWidget {
         border: Border.all(
           color: isSelected
               ? (isCorrect ? DdTheme.successGreen : DdTheme.errorRed)
-              : DdTheme.lockGrey.withOpacity(0.3),
+              : DdTheme.lockGrey.withValues(alpha: 0.3),
           width: 2.5,
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.06),
+            color: Colors.black.withValues(alpha: 0.06),
             blurRadius: 6,
             offset: const Offset(0, 2),
           ),

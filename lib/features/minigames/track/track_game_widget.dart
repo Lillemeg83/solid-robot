@@ -89,7 +89,7 @@ class _TrackGameWidgetState extends State<TrackGameWidget> {
             style: TextStyle(
               fontSize: 15,
               fontWeight: FontWeight.w600,
-              color: DdTheme.warmBrown.withOpacity(0.6),
+              color: DdTheme.warmBrown.withValues(alpha: 0.6),
             ),
             textAlign: TextAlign.center,
           ),
@@ -107,10 +107,10 @@ class _TrackGameWidgetState extends State<TrackGameWidget> {
                 width: areaWidth,
                 height: areaHeight,
                 decoration: BoxDecoration(
-                  color: DdTheme.forestLight.withOpacity(0.6),
+                  color: DdTheme.forestLight.withValues(alpha: 0.6),
                   borderRadius: BorderRadius.circular(DdTheme.radiusL),
                   border: Border.all(
-                    color: DdTheme.forestGreen.withOpacity(0.25),
+                    color: DdTheme.forestGreen.withValues(alpha: 0.25),
                     width: 1.5,
                   ),
                 ),
@@ -192,14 +192,14 @@ class _FootprintStep extends StatelessWidget {
       bg = DdTheme.successGreen;
       border = DdTheme.successGreen;
     } else if (hasError) {
-      bg = DdTheme.errorRed.withOpacity(0.15);
+      bg = DdTheme.errorRed.withValues(alpha: 0.15);
       border = DdTheme.errorRed;
     } else if (isNext) {
-      bg = DdTheme.warmOrange.withOpacity(0.18);
+      bg = DdTheme.warmOrange.withValues(alpha: 0.18);
       border = DdTheme.warmOrange;
     } else {
       bg = DdTheme.cardWhite;
-      border = DdTheme.lockGrey.withOpacity(0.4);
+      border = DdTheme.lockGrey.withValues(alpha: 0.4);
     }
 
     return GestureDetector(
@@ -212,7 +212,7 @@ class _FootprintStep extends StatelessWidget {
           border: Border.all(color: border, width: 2.5),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.1),
+              color: Colors.black.withValues(alpha: 0.1),
               blurRadius: 5,
               offset: const Offset(0, 2),
             ),

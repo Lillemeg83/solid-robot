@@ -5,7 +5,6 @@ import 'package:dyredetektiv/app/theme.dart';
 import 'package:dyredetektiv/data/sample_data.dart';
 import 'package:dyredetektiv/models/world.dart';
 import 'package:dyredetektiv/providers/progress_provider.dart';
-import 'package:dyredetektiv/widgets/dd_button.dart';
 
 class WorldMapScreen extends ConsumerWidget {
   const WorldMapScreen({super.key});
@@ -62,7 +61,7 @@ class WorldMapScreen extends ConsumerWidget {
                 borderRadius: BorderRadius.circular(DdTheme.radiusL),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.07),
+                    color: Colors.black.withValues(alpha: 0.07),
                     blurRadius: 8,
                     offset: const Offset(0, 2),
                   ),
@@ -148,7 +147,7 @@ class _WorldCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(DdTheme.radiusL),
               gradient: LinearGradient(
                 colors: [
-                  world.primaryColor.withOpacity(0.15),
+                  world.primaryColor.withValues(alpha: 0.15),
                   world.secondaryColor,
                 ],
                 begin: Alignment.topLeft,
@@ -162,7 +161,7 @@ class _WorldCard extends StatelessWidget {
                   width: 72,
                   height: 72,
                   decoration: BoxDecoration(
-                    color: world.primaryColor.withOpacity(0.2),
+                    color: world.primaryColor.withValues(alpha: 0.2),
                     shape: BoxShape.circle,
                   ),
                   child: Center(

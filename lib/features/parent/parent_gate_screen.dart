@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:dyredetektiv/app/theme.dart';
-import 'package:dyredetektiv/widgets/dd_button.dart';
 
 /// Simple cognitive gate for the parent section.
 /// Uses a random arithmetic puzzle — easy for an adult, non-obvious for a
@@ -94,7 +93,7 @@ class _ParentGateScreenState extends State<ParentGateScreen> {
                 'Løs regnestykket for å gå videre',
                 style: TextStyle(
                   fontSize: 16,
-                  color: DdTheme.warmBrown.withOpacity(0.6),
+                  color: DdTheme.warmBrown.withValues(alpha: 0.6),
                 ),
               ),
               const SizedBox(height: DdTheme.spaceXXL),
@@ -110,7 +109,7 @@ class _ParentGateScreenState extends State<ParentGateScreen> {
                   borderRadius: BorderRadius.circular(DdTheme.radiusL),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.07),
+                      color: Colors.black.withValues(alpha: 0.07),
                       blurRadius: 10,
                     ),
                   ],
@@ -192,7 +191,7 @@ class _OptionButton extends StatelessWidget {
           border: Border.all(
             color: isSelected
                 ? (isCorrect ? DdTheme.successGreen : DdTheme.errorRed)
-                : DdTheme.lockGrey.withOpacity(0.3),
+                : DdTheme.lockGrey.withValues(alpha: 0.3),
             width: 2.5,
           ),
         ),

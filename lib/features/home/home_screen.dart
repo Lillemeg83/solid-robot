@@ -100,7 +100,7 @@ class _Content extends StatelessWidget {
                 style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
               ),
               style: TextButton.styleFrom(
-                foregroundColor: DdTheme.warmBrown.withOpacity(0.6),
+                foregroundColor: DdTheme.warmBrown.withValues(alpha: 0.6),
               ),
             ),
           ],
@@ -120,7 +120,7 @@ class _LogoSection extends StatelessWidget {
           width: 120,
           height: 120,
           decoration: BoxDecoration(
-            color: DdTheme.lightGreen.withOpacity(0.2),
+            color: DdTheme.lightGreen.withValues(alpha: 0.2),
             shape: BoxShape.circle,
             border: Border.all(color: DdTheme.lightGreen, width: 3),
           ),
@@ -148,7 +148,7 @@ class _LogoSection extends StatelessWidget {
           style: TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.w500,
-            color: DdTheme.warmBrown.withOpacity(0.7),
+            color: DdTheme.warmBrown.withValues(alpha: 0.7),
           ),
           textAlign: TextAlign.center,
         ),
