@@ -161,8 +161,8 @@ class _SortGameWidgetState extends State<SortGameWidget> {
             // Prompt text
             Text(
               hasSelection
-                  ? 'Trykk på en bøtte for å plassere gjenstanden!'
-                  : 'Trykk på en gjenstand, deretter en bøtte!',
+                  ? 'Trykk på en eske for å plassere gjenstanden!'
+                  : 'Trykk på en gjenstand, deretter riktig eske!',
               style: TextStyle(
                 fontSize: 14,
                 color: DdTheme.warmBrown.withValues(alpha: 0.65),
